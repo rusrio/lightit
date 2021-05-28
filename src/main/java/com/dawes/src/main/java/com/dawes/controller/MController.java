@@ -49,4 +49,9 @@ public class MController {
 
 	return "index";
 	}
+	
+	@GetMapping("/tienda")
+	public String tienda(Model modelo) {
+		return "tienda";
+	}
 }
