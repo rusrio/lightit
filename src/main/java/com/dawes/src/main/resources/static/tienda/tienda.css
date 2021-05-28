@@ -148,22 +148,45 @@ padding-bottom: 5%;
       grid-template-columns: 32.2% 32.2% 32.2%;
       grid-template-rows: auto;
       grid-gap: 2vh;
-      border: 1px solid black;
+      /* border: 1px solid black; */
+      padding: 1%;
   }
 
   .grid-contenedor > div{
-      display: flex;
+      display: grid;
       align-items: center;
-      justify-content: center;
       height: 500px;
-      border: 1px solid black;
       background-color: burlywood;
-      
+      grid-template-columns: auto;
+      grid-template-rows: 75% 25%;
   }
 
+  .container{
+      transition: 250ms;
+  }
+
+    .container:hover{
+    background-color: rgb(177, 144, 101);
+    transition: 250ms;
+    }
+     
+    .containerextra{
+     font-family: 'Roboto Mono', monospace;
+     opacity: 0;
+     transition: 250ms;
+     grid-row: 2;
+     padding-inline-start: 5%;
+     font-size: 2em;
+    }
+
+    .container:hover > .containerextra{
+     opacity: 1;
+     transition: 250ms;
+    }
+  
   /*SCROLLBAR*/
 
-body::-webkit-scrollbar {
+  body::-webkit-scrollbar {
     width: 1em;
     background-color: #600473;
   }
