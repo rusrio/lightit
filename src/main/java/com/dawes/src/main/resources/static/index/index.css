@@ -75,8 +75,30 @@ header{
 	grid-column-start: 4;
 	grid-column-end: 4;
 }
+/* 
+button{ 
+	
+	
+//	Diseño 1
+	font-size: 1em;
+	background-color: transparent;
+	color: black;
+	font-family: 'Inter', sans-serif;
+	text-transform: uppercase;	
+	border: 8px solid black;
+    text-align: left; 
 
-button{
+//	Diseño 2
+	 font-size: 1em;
+	background-color: transparent;
+	color: black;
+	font-family: 'Inter', sans-serif;
+	text-transform: uppercase;	
+	border: none;
+	transition: 250ms;
+} */
+
+a{
 	
 	/*
 	Diseño 1
@@ -96,11 +118,19 @@ button{
 	text-transform: uppercase;	
 	border: none;
 	transition: 250ms;
+	align-self: center;
+	text-decoration: none;
 }
 
 /*Hovers*/
 
-button:hover{
+/* button:hover{
+	cursor: pointer;
+	transform: scale(1.3);
+	transition: 300ms;
+} */
+
+a:hover{
 	cursor: pointer;
 	transform: scale(1.3);
 	transition: 300ms;
@@ -153,6 +183,7 @@ Purpled: #600473 */
 }
 
 .slideuno img{
+	width: 10px;
 	
 }
 
