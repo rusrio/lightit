@@ -39,7 +39,6 @@ body {
 
 body {
   font-size: 1.2em;
-  text-transform: lowercase;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -102,18 +101,21 @@ form input {
   margin: 0 1.5rem;
   background-color: transparent !important;
   color: white;
+  font-family: 'Inter', sans-serif;
+  text-transform: lowercase;
 }
 
 
 form input::placeholder {
   color: white;
+  
 }
 
 form input:focus {
   color: #3f4353;
   font-weight: bold;
   outline: 0;
-  border: 6px solid #ffffff;
+  border: 6px solid white;
 }
 
 form button {
@@ -144,4 +146,13 @@ form p {
   font-size: 0.75rem;
   line-height: 1.4rem;
   margin: 0.5rem 1.5rem 1.75rem 1.5rem;
+}
+
+a{
+	color: white;
+	text-decoration: none;
+}
+
+a:hover{
+	border-bottom: 2px solid white;
 }
