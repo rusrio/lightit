@@ -125,13 +125,13 @@ padding-bottom: 5%;
   }
 
   .subtitulo > span {
-    animation: color-change 15s infinite;
+    animation: color-animation 15s infinite;
     font-family: 'Inter', sans-serif;
     font-size: 1.2em;
     text-transform: lowercase;
   }
   
-  @keyframes color-change {
+  @keyframes color-animation {
       0% {color: #ff9100;}
       25% { color: #0091ea;}
       50% { color: #7c4dff;}
@@ -176,7 +176,7 @@ padding-bottom: 5%;
      transition: 250ms;
      grid-row: 2;
      padding-inline-start: 5%;
-     font-size: 2em;
+     font-size: 1.6vw;
     }
 
     .container:hover > .containerextra{

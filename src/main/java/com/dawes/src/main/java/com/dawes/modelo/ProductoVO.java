@@ -28,4 +28,5 @@ private String descripcion;
 private String titulo;
 private Date fecha;
 private double precio;
+private String imagen;
 }

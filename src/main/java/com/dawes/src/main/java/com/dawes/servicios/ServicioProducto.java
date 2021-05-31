@@ -2,29 +2,29 @@ package com.dawes.servicios;
 
 import java.util.Optional;
 
-import com.dawes.modelo.PedidoVO;
+import com.dawes.modelo.ProductoVO;
 
 public interface ServicioProducto {
 
-	<S extends PedidoVO> S save(S entity);
+	<S extends ProductoVO> S save(S entity);
 
-	<S extends PedidoVO> Iterable<S> saveAll(Iterable<S> entities);
+	<S extends ProductoVO> Iterable<S> saveAll(Iterable<S> entities);
 
-	Optional<PedidoVO> findById(Integer id);
+	Optional<ProductoVO> findById(Integer id);
 
 	boolean existsById(Integer id);
 
-	Iterable<PedidoVO> findAll();
+	Iterable<ProductoVO> findAll();
 
-	Iterable<PedidoVO> findAllById(Iterable<Integer> ids);
+	Iterable<ProductoVO> findAllById(Iterable<Integer> ids);
 
 	long count();
 
 	void deleteById(Integer id);
 
-	void delete(PedidoVO entity);
+	void delete(ProductoVO entity);
 
-	void deleteAll(Iterable<? extends PedidoVO> entities);
+	void deleteAll(Iterable<? extends ProductoVO> entities);
 
 	void deleteAll();
 

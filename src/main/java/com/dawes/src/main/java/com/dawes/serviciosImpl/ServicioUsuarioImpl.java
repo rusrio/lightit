@@ -3,6 +3,9 @@ package com.dawes.serviciosImpl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.dawes.modelo.UsuarioVO;
@@ -11,6 +14,7 @@ import com.dawes.servicios.ServicioUsuario;
 
 @Service
 public class ServicioUsuarioImpl implements ServicioUsuario {
+	
 	@Autowired
 	UsuarioRepository ur;
 
@@ -72,6 +76,14 @@ public class ServicioUsuarioImpl implements ServicioUsuario {
 	public Optional<UsuarioVO> findByNombre(String nombre) {
 		return ur.findByNombre(nombre);
 	}
+/*
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		System.out.println("ha encontrado a "+ur.findByUsername(username).getPassword());
+		return ur.findByUsername(username);
+	}
+*/
 	
 	
 }

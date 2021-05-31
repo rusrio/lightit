@@ -22,20 +22,17 @@
 		<div class='hello' style='color: #ff1744'>colecciones</div>
 	 </div>
      <div class="subtitulo"> <span>Échale un vistazo a nuestras colecciones</span></div>
-    <div class="galeria">
+<div class="galeria">
         <div class="grid-contenedor">
-            <div class="container" id="container1"><div class="containerextra"><span>Texto de ejemplo</span></div></div>
-            <div class="container" id="container2"><div class="containerextra"><span>Texto de ejemplo</span></div></div>
-            <div class="container" id="container3"><div class="containerextra"><span>Texto de ejemplo</span></div></div>
-            <div class="container" id="container4"><div class="containerextra"><span>Texto de ejemplo</span></div></div>
-            <div class="container" id="container5"><div class="containerextra"><span>Texto de ejemplo</span></div></div>
-            <div class="container" id="container6"><div class="containerextra"><span>Texto de ejemplo</span></div></div>
-            <div class="container" id="container7"><div class="containerextra"><span>Texto de ejemplo</span></div></div>
+            <div class="container" id="container1" th:each="p : ${productos}">
+             <div class="containerextra">
+              <span th:text="${p.nombre}"></span>
+             </div>
+            </div>
+           
         </div>
     </div>
-    </div>
+</div>
 </body>
 <script type="text/javascript" src="/tienda/tienda.js"></script>
 </html>
-
-

@@ -50,8 +50,9 @@ public class MController {
 	return "index";
 	}
 	
-	@GetMapping("/tienda")
-	public String tienda(Model modelo) {
-		return "tienda";
+	@GetMapping("/registro")
+	public String registro() {
+	return "registro";
 	}
+	
 }

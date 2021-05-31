@@ -5,7 +5,9 @@ import java.util.Optional;
 import com.dawes.modelo.UsuarioVO;
 
 public interface ServicioUsuario {
-
+	/*
+	Optional<UsuarioVO> findByUsername(String nombre);
+	*/
 	<S extends UsuarioVO> S save(S entity);
 
 	<S extends UsuarioVO> Iterable<S> saveAll(Iterable<S> entities);
