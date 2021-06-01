@@ -22,6 +22,12 @@ public class PedidoController {
 		modelo.addAttribute("pedidos", spedidos.findAll());
 		return "/pedidos";
 	}
+	
+	@GetMapping("/gestion_pedidos")
+	public String gestion_pedidos() {
+	return "admin/gestion_pedidos";
+	}
+	
 	 //CRUD
 	@GetMapping("/insertarPedidos")
 	public String insertar(Model modelo) {

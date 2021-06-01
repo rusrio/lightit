@@ -1,7 +1,7 @@
 body{
-	background-image: url("/img/background_imagen.png");
+	background-color: black;
 	background-size: 100%;
-	overflow:inherit; 
+	overflow: inherit; 
 }
 
 .contenido{

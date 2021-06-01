@@ -26,6 +26,12 @@ public class ProductoController {
 		modelo.addAttribute("productos", sp.findAll());
 		return "tienda";
 	}
+	
+	@GetMapping("/gestion_productos")
+	public String gestion_productos() {
+	return "admin/gestion_productos";
+	}
+	
 	 //CRUD
 	@GetMapping("/insertarProducto")
 	public String insertar(Model modelo) {
