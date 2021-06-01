@@ -45,6 +45,7 @@ public class MiSeguridad extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(sui).passwordEncoder(encripta());
 	}
 	*/
+	/*
 	@Override
 	protected void configure(final HttpSecurity http) throws Exception {
 	    http
@@ -66,6 +67,6 @@ public class MiSeguridad extends WebSecurityConfigurerAdapter {
 	      .deleteCookies("JSESSIONID");
 	     
 	}
-	
+	*/
 }
 

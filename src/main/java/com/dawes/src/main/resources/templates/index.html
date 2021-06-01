@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:th="thymeleaf.org">
+<html xmlns:th="thymeleaf.org" lang=es>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title> LightIt | Inicio</title>
 <link href="index/index.css" rel="stylesheet" type="text/css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="contenido">
-  <header>
-  <div class="headertitulo"><p>LightIt &reg;</p></div>
-  <a href="./tienda"> <div class="headertienda"> <p>Tienda</p></div></a>
-  <a> <div class="headersobrenosotros"><p>Contacto</p></div></a>
-  <!-- <div class="gifmechero"><img alt="" src="/img/mechero_gif.gif"></div> -->
-  </header>
-	 <main><div class="contenedormain"><ul class="galeria">
-    <li class="slideuno"><img src="/img/slideruno.PNG" alt="" srcset=""></li>
-    <li class="slidedos" ><img src="/img/slider1.PNG" alt="" srcset=""></li>
-    <li class="slidetres" ><img src="/img/slider1.PNG" alt="" srcset=""></li>
-  </ul></div></main>	
-   <footer><div class="footer"></div></footer>
-  </div>
+<div class="contenedor">
+    <header> <div class="lightitmarca"><p>LightIt &reg;</p> </div></header>
+	<div class="gif_mechero"><img src="/img/gif-homepage-unscreen.gif" alt=""></div>
+	<div class="sidebar_izq">
+	 <a href="/tienda">
+	   <img alt="" src="/img/carritopixel.png">
+	    <span class="explorar">Explorar</span>
+	  
+	 </a> 
+	 <a href="/">
+	  <img alt="" src="/img/subir.png">
+	   <span style="white-space: nowrap;" class="subir">Subir diseño</span>
+	   
+	  </a>
+	   <a href="/about">
+	    <img alt="" src="/img/contacto.png">
+	    <span class="contacto">Contacto</span>
+	   </a>
+	  </div>
+</div>
  </body>
  <script src="index/index.js"></script>
+ <script src="https://kit.fontawesome.com/7bfebc882b.js" crossorigin="anonymous"></script>
 </html>
