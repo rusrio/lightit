@@ -45,5 +45,27 @@ public class MiSeguridad extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(sui).passwordEncoder(encripta());
 	}
 	*/
+	@Override
+	protected void configure(final HttpSecurity http) throws Exception {
+	    http
+	    .csrf().disable()
+	      .authorizeRequests()
+	      .antMatchers("/adminn/**").hasRole("ADMIN")
+	      .antMatchers("/anonymous*").anonymous()
+	      .antMatchers("/login*").permitAll()
+	      .anyRequest().authenticated()
+	      .and()
+	      .formLogin()
+	      .loginPage("/login.html")
+	      .loginProcessingUrl("/perform_login")
+	      .defaultSuccessUrl("/", true)
+	      .failureUrl("/login.html?error=true")
+	      .and()
+	      .logout()
+	      .logoutUrl("/perform_logout")
+	      .deleteCookies("JSESSIONID");
+	     
+	}
+	
 }
 

@@ -41,7 +41,7 @@ public class PedidoController {
 		spedidos.deleteById(idpedidos);
 		modelo.addAttribute("pedidos", spedidos.findAll());
 		return "admin/eliminarPedidos";
-	}
+			}
 	
 	@GetMapping("/modificarPedido")
 	public String modificar(@RequestParam int idpedido, Model modelo){

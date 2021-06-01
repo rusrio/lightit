@@ -55,4 +55,14 @@ public class MController {
 	return "registro";
 	}
 	
+	@GetMapping("/login")
+	public String login() {
+	return "login";
+	}
+	
+	@GetMapping("/admin")
+	public String admin() {
+		return "admin/panel_admin";
+	}
+	
 }
