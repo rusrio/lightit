@@ -125,4 +125,40 @@ a{
 	font-size: 30px;
 }
 
+/* ESTILOS TABLA */
+
+.tabla{
+	display: flex;
+    justify-content: center;
+    line-height: 2em;
+}
+
+table{
+	width: 90%;
+	font-family: 'Share Tech Mono', monospace;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+thead{
+	font-size: 1.4vw;
+	text-align: justify;
+	border: 1px solid black;
+}
+
+table,th,td{
+	border: 1px solid black;
+}
+
+tr:hover {
+
+	}
+
+th,td{
+	padding-block: 0.6em;
+}
+
+tbody{
+	font-size: 1.2vw;
+}
 

@@ -28,7 +28,8 @@ public class ProductoController {
 	}
 	
 	@GetMapping("/gestion_productos")
-	public String gestion_productos() {
+	public String gestion_productos(Model modelo) {
+	modelo.addAttribute("productos", sp.findAll());
 	return "admin/gestion_productos";
 	}
 	
