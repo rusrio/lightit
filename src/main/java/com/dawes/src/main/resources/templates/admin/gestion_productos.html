@@ -21,7 +21,6 @@
 				<tr>
 					<th scope="col">Nombre</th>
 					<th scope="col">Descripción</th>
-					<th scope="col">Titulo</th>
 					<th scope="col">Precio</th>
 					<th scope="col">Imagen</th>
 					<th scope="col">Fecha</th>
@@ -32,17 +31,16 @@
 		<tr th:each="p: ${productos}">
 		<td th:text="${p.nombre}"></td>
 		<td th:text="${p.descripcion}"></td>
-		<td th:text="${p.titulo}"></td>
 		<td th:text="${p.precio}"></td>
 		<td th:text="${p.imagen}"></td>
 		<td th:text="${p.fecha}"></td>
-		
-	
-		
+		<td><a th:href="@{/modificarProducto(idproducto=${p.idproducto})}">Modificar</a></td>
+		<td><a th:href="@{/eliminarProducto(idproducto=${p.idproducto})}">Eliminar</a></td>
 		</tr>
 		</tbody>
 	</table>
 	</div>
+	<div class="insertarProducto"> <a href="/insertarProducto">Añadir un producto</a> <i class="far fa-save"></i> </div>
 </div>
 </div>
 </body>

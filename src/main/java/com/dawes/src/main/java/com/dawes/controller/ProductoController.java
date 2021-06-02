@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -43,22 +44,22 @@ public class ProductoController {
 	@PostMapping("/submitProducto")
 	public String submit(@ModelAttribute ProductoVO producto,Model modelo) {
 		sp.save(producto);
-		modelo.addAttribute("producto", sp.findAll());
-		return "admin/submitProducto";
+		modelo.addAttribute("productos", sp.findAll());
+		return "admin/gestion_productos";
 	}
 	
-	@GetMapping("/eliminar")
+	@GetMapping("/eliminarProducto")
 	public String eliminar(@RequestParam int idproducto, Model modelo){
 		sp.deleteById(idproducto);
-		modelo.addAttribute("lineas", sp.findAll());
-		return "admin/eliminarProducto";
+		modelo.addAttribute("productos", sp.findAll());
+		return "admin/gestion_productos";
 	}
 	
-	@GetMapping("/modificar")
+	@GetMapping("/modificarProducto")
 	public String modificar(@RequestParam int idproducto, Model modelo){
 		ProductoVO pr=sp.findById(idproducto).get();
 		modelo.addAttribute("producto", pr);
-		return "admin/modificar";
+		return "admin/modificarProducto";
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,8 +34,13 @@ public class UsuarioVO implements UserDetails{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 private int idusuario;
+	
+@NotNull
+@Column(unique=true)
 private String nombre;
 private LocalDate fechaRegistro;
+
+@NotNull
 private String contrasena;
 @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 List<UsuarioRolVO> roles;

@@ -57,7 +57,7 @@ header{
     padding-top: 8%;
 }
 
-.hello {
+.coleccionesanimacion {
     align-self: flex-end;
 	grid-column: 2;
 	display: flex;
@@ -75,28 +75,28 @@ header{
     
   }
   
-  .hello:nth-of-type(1) {
+  .coleccionesanimacion:nth-of-type(1) {
     -webkit-animation-duration: 2s;
             animation-duration: 2s;
     -webkit-animation-delay: 0.55s;
             animation-delay: 0.55s;
   }
   
-  .hello:nth-of-type(2) {
+  .coleccionesanimacion:nth-of-type(2) {
     -webkit-animation-duration: 2s;
             animation-duration: 2s;
     -webkit-animation-delay: 0.3s;
             animation-delay: 0.3s;
   }
   
-  .hello:nth-of-type(3) {
+  .coleccionesanimacion:nth-of-type(3) {
     -webkit-animation-duration: 2s;
             animation-duration: 2s;
     -webkit-animation-delay: 0.05s;
             animation-delay: 0.05s;
   }
   
-  .hello:nth-of-type(4) {
+  .coleccionesanimacion:nth-of-type(4) {
     -webkit-animation-duration: 2s;
             animation-duration: 2s;
     -webkit-animation-delay: -0.2s;
@@ -150,27 +150,28 @@ padding-bottom: 5%;
       display: grid;
       grid-template-columns: 32.2% 32.2% 32.2%;
       grid-template-rows: auto;
-      grid-gap: 2vh;
+      grid-gap: 2vw;
       /* border: 1px solid black; */
-      padding: 1%;
+     
   }
 
   .grid-contenedor > div{
       display: grid;
       align-items: center;
-      height: 500px;
-      background-color: burlywood;
-      grid-template-columns: auto;
+      height: auto;
+      grid-template-columns: 100%;
       grid-template-rows: 75% 25%;
   }
 
   .container{
       transition: 250ms;
+      
   }
 
     .container:hover{
-    background-color: rgb(177, 144, 101);
+    background-color: white;
     transition: 250ms;
+    box-shadow: 5px 0px 10px #888888;
     }
      
     .containerextra{
@@ -180,11 +181,46 @@ padding-bottom: 5%;
      grid-row: 2;
      padding-inline-start: 5%;
      font-size: 1.6vw;
+     margin-top: 3%;
+     display: flex;
+     justify-content: space-between;
+     flex-direction: row;
     }
 
     .container:hover > .containerextra{
      opacity: 1;
      transition: 250ms;
+    }
+    
+    .iconocarrito{
+        margin-inline-end: 2vw;
+        cursor: pointer;
+    }
+    
+    .iconocarrito:hover{
+        transform: scale(1.1);
+        transition: 200ms;
+    }
+    
+    .container:hover img{
+    filter: grayscale(1);
+    transition: 100ms;
+    }
+    
+    .container:hover .img{
+    border-bottom: hidden;
+    }
+    
+    .img{
+     display: flex;  
+     box-shadow: 5px 0px 10px #888888;
+    }
+    
+    img{ 
+     transition: 250ms;
+     display: block;
+     width: 100%;
+     height: auto;
     }
   
   /*SCROLLBAR*/

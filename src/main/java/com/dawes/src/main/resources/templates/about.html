@@ -5,6 +5,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h1>Modificar linea</h1>
+<form th:action="@{/submit}" method="post" th:object="${linea}">
+<p>Denominacion corta: <input type="text" name="dencorta" id="dencorta" th:value="${linea.dencorta}" th:field="*{dencorta}"/> </p>
+<p>Denominacion larga: <input type="text" name="denlarga" id="denlarga" th:value="${linea.denlarga}" th:field="*{denlarga}"/> </p>
+<input type="submit" value="modificar"/>
+<input type="hidden" name="idlinea" id="idlinea" th:value="${idlinea}" th:field=*{idlinea}/>
+<h5><a th:href="@{/lineas}">Volver</a></h5>
+</form>
 </body>
 </html>

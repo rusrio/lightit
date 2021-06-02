@@ -15,7 +15,31 @@
  <div class="contenido">
   <div class="lightitmarca"><p>LightIt &reg;</p> <a class="volver" href="/admin">Volver <i class="fas fa-undo-alt"></i></a> </div>
     <h1 id="mensaje">Gestión de pedidos</h1>
-    
+	<div class="tabla">
+	<table>
+			<thead>
+				<tr>
+					<th scope="col">Num. Pedido</th>
+					<th scope="col">Cliente</th>
+					<th scope="col">Productos</th>
+					<th scope="col">Precio</th>
+					<th scope="col">Fecha</th>
+					<th scope="col" colspan="2">Acción</th>
+				</tr>
+			</thead>
+			<tbody>
+		<tr th:each="up: ${usuariopedido}">
+		<td th:text="${up.pedido.idpedido}"></td>
+		<td th:text="${up.usuario.nombre}"></td>	
+		<td th:text="${up.pedido.precio}"></td>
+		<td th:text="${up.fechaPedido}"></td>
+		<td th:text="${up.fechaPedido}"></td>
+
+		</tr>
+		</tbody>
+	</table>
+	</div>
+	<div class="insertarProducto"> <a href="/insertarProducto">Añadir un producto</a> <i class="far fa-save"></i> </div>
 </div>
 </div>
 </body>

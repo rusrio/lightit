@@ -16,17 +16,22 @@
           <div class="headertitulo"><p>LightIt &reg;</p></div>
         </header>
 	 <div class="tituloanimacion">
-   		<div class='hello' style='color: #7c4dff'>colecciones</div>
-		<div class='hello' style='color: #0091ea'>colecciones</div>
-		<div class='hello' style='color: #ff9100'>colecciones</div>
-		<div class='hello' style='color: #ff1744'>colecciones</div>
+   		<div class='coleccionesanimacion' style='color: #7c4dff'>colecciones</div>
+		<div class='coleccionesanimacion' style='color: #0091ea'>colecciones</div>
+		<div class='coleccionesanimacion' style='color: #ff9100'>colecciones</div>
+		<div class='coleccionesanimacion' style='color: #ff1744'>colecciones</div>
 	 </div>
      <div class="subtitulo"> <span>Échale un vistazo a nuestras colecciones</span></div>
 <div class="galeria">
         <div class="grid-contenedor">
-            <div class="container" id="container1" th:each="p : ${productos}">
+            <div th:each="p : ${productos}" class="container">
+             <div class="img"> <img alt="${p.titulo}" th:src="${p.imagen}"> </div>
              <div class="containerextra">
               <span th:text="${p.nombre}"></span>
+              <span th:text="${p.precio +'€'}"></span>
+               <div class="iconocarrito">
+                <i class="fas fa-cart-plus"></i>
+               </div>
              </div>
             </div>
            
@@ -35,4 +40,5 @@
 </div>
 </body>
 <script type="text/javascript" src="/tienda/tienda.js"></script>
+ <script src="https://kit.fontawesome.com/7bfebc882b.js" crossorigin="anonymous"></script>
 </html>
