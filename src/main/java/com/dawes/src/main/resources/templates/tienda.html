@@ -14,7 +14,10 @@
     <div class="contenido">
         <header>
           <div class="headertitulo"><p>LightIt &reg;</p></div>
+   		 <div class="panelusuario">  <a href="usuario"> <i class="fas fa-user"></i> </a> </div>
+   		 <div class="rutasusuario"> <span>Bienvenido, $Usuario</span> <a href="mis_pedidos">Mis pedidos</a> <a href="/">Cerrar sesión</a> </div>
         </header>
+       
 	 <div class="tituloanimacion">
    		<div class='coleccionesanimacion' style='color: #7c4dff'>colecciones</div>
 		<div class='coleccionesanimacion' style='color: #0091ea'>colecciones</div>
@@ -29,13 +32,14 @@
              <div class="containerextra">
               <span th:text="${p.nombre}"></span>
               <span th:text="${p.precio +'€'}"></span>
-               <div class="iconocarrito">
-                <i class="fas fa-cart-plus"></i>
-               </div>
-             </div>
-            </div>
-           
-        </div>
+               <div class="iconoir">
+               <a style="color: black" th:href="@{/ver_producto(idproducto=${p.idproducto})}">
+                <i class="fas fa-arrow-up"></i>
+                </a>
+              </div>
+           </div>
+          </div>
+         </div>
     </div>
 </div>
 </body>

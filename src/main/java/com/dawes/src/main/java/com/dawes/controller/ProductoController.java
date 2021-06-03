@@ -1,5 +1,8 @@
 package com.dawes.controller;
 import java.io.IOException;
+import java.security.Principal;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -60,6 +63,16 @@ public class ProductoController {
 		ProductoVO pr=sp.findById(idproducto).get();
 		modelo.addAttribute("producto", pr);
 		return "admin/modificarProducto";
+	}
+	
+	@GetMapping("/ver_producto")
+	public String ver_producto(@RequestParam int idproducto, Model modelo, HttpServletRequest request) {
+		ProductoVO pr = sp.findById(idproducto).get();
+		modelo.addAttribute("producto", pr);
+		Principal principal = request.getUserPrincipal();
+		modelo.addAttribute("nombreusuario",principal);
+		
+		return "ver_producto";
 	}
 	
 }

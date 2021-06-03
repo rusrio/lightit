@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LightIt |</title>
+    <link rel="stylesheet" type="text/css" href="/tienda/ver_producto.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+ <div class="contenido">
+        <header>
+          <div class="headertitulo"><p>LightIt &reg;</p></div>
+   		 <div class="panelusuario">  <a href="usuario"> <i class="fas fa-user"></i> </a> </div>
+   		 <div class="rutasusuario"> <span th:text="${nombreusuario}">Bienvenido, $Usuario</span> <a href="mis_pedidos">Mis pedidos</a> <a href="/">Cerrar sesión</a> </div>
+        </header>
+       
+	 <div class="tituloanimacion">
+   		<div th:text="${producto.nombre}" class='coleccionesanimacion' style='color: #7c4dff'></div>
+		<div th:text="${producto.nombre}" class='coleccionesanimacion' style='color: #0091ea'></div>
+		<div th:text="${producto.nombre}" class='coleccionesanimacion' style='color: #ff9100'></div>
+		<div th:text="${producto.nombre}" class='coleccionesanimacion' style='color: #ff1744'></div>
+	 </div>
+
+    <div class="visualizador">
+        <div class="panel_compra">
+         <span th:text="${producto.nombre}" class="nombre_producto"></span>
+         <span th:text="${producto.descripcion}" class="descripcion_producto"></span>
+         <span th:text="${producto.precio}" class="precio_producto"></span>
+         <button>Comprar ahora</button>
+        </div>
+        <div class="img_producto"> <img alt="" th:src="${producto.imagen}"> </div>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="/tienda/tienda.js"></script>
+ <script src="https://kit.fontawesome.com/7bfebc882b.js" crossorigin="anonymous"></script>
+</html>
