@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dawes.modelo.UsuarioRolVO;
 import com.dawes.modelo.UsuarioVO;
+import com.dawes.servicios.ServicioPedidoProductoUsuario;
+import com.dawes.servicios.ServicioRol;
 import com.dawes.servicios.ServicioUsuario;
 
 @Controller
@@ -16,15 +19,23 @@ public class UsuarioController {
 	@Autowired
 	ServicioUsuario susuario;
 	
+	@Autowired
+	ServicioPedidoProductoUsuario sppu;
+	
+	@Autowired
+	ServicioRol sr;
+	
 	@GetMapping("/usuarios")
 	public String usuarios(Model modelo) {
 		modelo.addAttribute("usuarios", susuario.findAll());
 		return "admin/usuarios";
 	}
 	 //CRUD
-	@GetMapping("/insertarUsuarios")
+	@GetMapping("/insertarUsuario")
 	public String insertar(Model modelo) {
-		modelo.addAttribute("usuario", new UsuarioVO());
+		modelo.addAttribute("usuarios", susuario.findAll());
+		modelo.addAttribute("usuarioroles", new UsuarioRolVO());
+		modelo.addAttribute("roles", sr.findAll());
 		return "admin/insertarUsuario";
 	}
 	
