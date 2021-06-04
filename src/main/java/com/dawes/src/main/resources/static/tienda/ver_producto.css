@@ -91,10 +91,14 @@ i:hover{
 	font-family: 'Inter', sans-serif;
 }
 
-.rutasusuario a:hover{
+.rutasusuario > a:hover{
 	color: white;
 	transform: translateX(5px);
 	transition: 100ms;
+}
+
+i.fas.fa-undo-alt{
+	padding-left: 0.4vw;
 }
 
 /*TITULO ANIMACION*/

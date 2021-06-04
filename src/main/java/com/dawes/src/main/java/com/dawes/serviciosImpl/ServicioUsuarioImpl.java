@@ -13,7 +13,7 @@ import com.dawes.repositorio.UsuarioRepository;
 import com.dawes.servicios.ServicioUsuario;
 
 @Service
-public class ServicioUsuarioImpl implements ServicioUsuario {
+public class ServicioUsuarioImpl implements ServicioUsuario, UserDetailsService {
 	
 	@Autowired
 	UsuarioRepository ur;
@@ -73,17 +73,28 @@ public class ServicioUsuarioImpl implements ServicioUsuario {
 		ur.deleteAll();
 	}
 	
-	public Optional<UsuarioVO> findByNombre(String nombre) {
+
+	@Override
+	public UserDetails loadUserByNombre(String nombre) throws UsernameNotFoundException {
+	// TODO Auto-generated method stub
+		System.out.println("ha encontrado a "+ur.findByNombre(nombre).getPassword());
 		return ur.findByNombre(nombre);
 	}
-/*
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		System.out.println("ha encontrado a "+ur.findByUsername(username).getPassword());
-		return ur.findByUsername(username);
+		return null;
 	}
-*/
+
+	@Override
+	public Optional<UsuarioVO> findByNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 	
 	
 }

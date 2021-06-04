@@ -2,19 +2,20 @@ package com.dawes.servicios;
 
 import java.util.Optional;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 import com.dawes.modelo.UsuarioVO;
 
 public interface ServicioUsuario {
-	/*
-	Optional<UsuarioVO> findByUsername(String nombre);
-	*/
+	
+	Optional<UsuarioVO> findByNombre(String nombre);
+	
 	<S extends UsuarioVO> S save(S entity);
 
 	<S extends UsuarioVO> Iterable<S> saveAll(Iterable<S> entities);
 
 	Optional<UsuarioVO> findById(Integer id);
-	
-	Optional<UsuarioVO> findByNombre(String nombre);
 
 	boolean existsById(Integer id);
 
@@ -31,5 +32,7 @@ public interface ServicioUsuario {
 	void deleteAll(Iterable<? extends UsuarioVO> entities);
 
 	void deleteAll();
+
+	UserDetails loadUserByNombre(String nombre) throws UsernameNotFoundException;
 
 }
