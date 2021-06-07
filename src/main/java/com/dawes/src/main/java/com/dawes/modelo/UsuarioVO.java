@@ -45,10 +45,8 @@ private String contrasena;
 @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 List<UsuarioRolVO> roles;
 
-
 @Override
 public Collection<? extends GrantedAuthority> getAuthorities() {
-	// TODO Auto-generated method stub
 	return null;
 }
 @Override

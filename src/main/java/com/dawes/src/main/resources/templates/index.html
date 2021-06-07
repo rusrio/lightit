@@ -18,8 +18,8 @@
 	   <img alt="" src="/img/carritopixel.png">
 	    <span class="explorar">Explorar</span>
 	 </a> 
-	 <a href="/">
-	  <img alt="" src="/img/subir.png">
+	 <a href="/" sec:authorize="isAuthenticated()">
+	  <img alt="" src="/img/subir.png" >
 	   <span style="white-space: nowrap;" class="subir">Subir diseño</span>
 	  </a>
 	   <a href="/about">
@@ -28,8 +28,9 @@
 	   </a>
 	  </div>
       <div class="login"><img src="/img/login.png" alt="">
-    <a href="/login">Iniciar sesión</a>
-    <a href="/registro">Registrarse</a>
+    <a sec:authorize="!isAuthenticated()" href="/login">Iniciar sesión</a>
+    <a sec:authorize="!isAuthenticated()" href="/registro">Registrarse</a>
+    <a sec:authorize="isAuthenticated()" href="/usuario">Hola,<span sec:authentication="name"></span></a>
     </div>
 </div>
  </body>

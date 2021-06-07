@@ -18,9 +18,9 @@ public class MiSeguridad extends WebSecurityConfigurerAdapter {
 	@Autowired
 	ServicioUsuarioImpl sui;
 
-	@Bean
-	public BCryptPasswordEncoder encripta() {
-	    return new BCryptPasswordEncoder();
+	@Bean 
+	public BCryptPasswordEncoder encripta() { 
+	    return new BCryptPasswordEncoder(); 
 	}
 	
 //	Autenticacion
@@ -30,21 +30,29 @@ public class MiSeguridad extends WebSecurityConfigurerAdapter {
 	// configuramos la autorizacion
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
-			// TODO Auto-generated method stub
-			 http.authorizeRequests().antMatchers("/admin").hasRole ("ADMIN").and().formLogin().loginPage("/login");
-			 http.authorizeRequests().antMatchers("/registrado").hasRole ("REGISTRADO").and().formLogin ().loginPage("/login");
-			 http.exceptionHandling().accessDeniedPage("/error403");
-			 // al salir del logout que pase el control a la vista index
-			 http.logout().logoutSuccessUrl("/index");
-			 http.csrf().disable();
+			
+			 http
+		      .csrf().disable()
+		      .authorizeRequests()
+		      .antMatchers("/admin/**").permitAll()
+		      .antMatchers("/static*").permitAll()
+		      .antMatchers("/login*").anonymous()
+		      .and()
+		      .formLogin()
+		      .loginPage("/login")
+		      .loginProcessingUrl("/login")
+		      .defaultSuccessUrl("/index", true)		      
+		      .and()
+		      .logout()
+		      .logoutUrl("/logout")
+		      .deleteCookies("JSESSIONID");
+		      
 		}
 		// configuramos la autenticacion
 		@Override
 		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//			auth.inMemoryAuthentication().withUser("admin").password (passwordEncoder().encode("temporal")).roles("ADMIN");
-//			auth.inMemoryAuthentication().withUser("user").password (passwordEncoder().encode("temporal")).roles("REGISTRADO");
-
-			auth.userDetailsService(sui).passwordEncoder(encripta());
+		auth.inMemoryAuthentication().withUser("admin").password (encripta().encode("temporal")).roles("ADMIN");
+		auth.inMemoryAuthentication().withUser("user").password (encripta().encode("temporal")).roles("REGISTRADO");
 		}
 	
 }

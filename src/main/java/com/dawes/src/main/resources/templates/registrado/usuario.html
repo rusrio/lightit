@@ -20,37 +20,28 @@
         </header>
        
 	 <div class="tituloanimacion">
-   		<div th:text="${usuario.nombre}" class='coleccionesanimacion' style='color: #7c4dff'></div>
-		<div th:text="${usuario.nombre}" class='coleccionesanimacion' style='color: #0091ea'></div>
-		<div th:text="${usuario.nombre}" class='coleccionesanimacion' style='color: #ff9100'></div>
-		<div th:text="${usuario.nombre}" class='coleccionesanimacion' style='color: #ff1744'></div>
+   		<div th:text="'Coleccion de '+${usuario.nombre}" class='coleccionesanimacion' style='color: #7c4dff'></div>
+		<div th:text="'Coleccion de '+${usuario.nombre}" class='coleccionesanimacion' style='color: #0091ea'></div>
+		<div th:text="'Coleccion de '+${usuario.nombre}" class='coleccionesanimacion' style='color: #ff9100'></div>
+		<div th:text="'Coleccion de '+${usuario.nombre}" class='coleccionesanimacion' style='color: #ff1744'></div>
 	 </div>
 
-     <div class="tabla">
-		<table>
-			<thead>
-				<tr>
-					<th scope="col">Nombre</th>
-					<th scope="col">Descripción</th>
-					<th scope="col">Precio</th>
-					<th scope="col">Imagen</th>
-					<th scope="col">Fecha</th>
-					<th scope="col" colspan="2">Acción</th>
-				</tr>
-			</thead>
-			<tbody>
-		<tr th:each="up: ${usuarioproductos}">
-		<td th:text="${up.}"></td>
-		<td th:text="${p.descripcion}"></td>
-		<td th:text="${p.precio}"></td>
-		<td th:text="${p.imagen}"></td>
-		<td th:text="${p.fecha}"></td>
-		<td><a th:href="@{/modificarProducto(idproducto=${p.idproducto})}">Modificar</a></td>
-		<td><a th:href="@{/eliminarProducto(idproducto=${p.idproducto})}">Eliminar</a></td>
-		</tr>
-		</tbody>
-	</table>   
-     </div>
+<div class="galeria">
+        <div class="grid-contenedor">
+            <div th:each="c : ${customusuario}" class="container">
+             <div class="img"> <img alt="${c.titulo}" th:src="${c.custom.imagen}"> </div>
+             <div class="containerextra">
+              <span th:text="${c.custom.nombre}"></span>
+              <span th:text="${c.custom.precio +'€'}"></span>
+               <div class="iconoir">
+               <a style="color: black" th:href="@{/ver_producto(idcustom=${c.custom.idcustom})}">
+                <i class="fas fa-arrow-up"></i>
+                </a>
+              </div>
+           </div>
+          </div>
+         </div>
+    </div>
 
 </div>
 </body>

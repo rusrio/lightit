@@ -10,6 +10,7 @@ import com.dawes.repositorio.UsuarioProductoRepository;
 import com.dawes.servicios.ServicioUsuarioProducto;
 @Service
 public class ServicioUsuarioProductoImpl implements ServicioUsuarioProducto {
+	
 	@Autowired
 UsuarioProductoRepository uprr;
 

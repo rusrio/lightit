@@ -1,5 +1,7 @@
 package com.dawes.modelo;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,23 +19,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "pedidoproductousuario")
-public class PedidoProductoUsuarioVO{
-
+@Table(name="usuariocustom")
+public class UsuarioCustomVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idproductousuario;
+	private int idusuariocustom;
 	
 	@ManyToOne
-	@JoinColumn(name = "idpedido")
-	private PedidoVO pedido;
-	
-	@ManyToOne
-	@JoinColumn(name = "idproducto")
-	private ProductoVO producto;
-	
-	@ManyToOne
-	@JoinColumn(name="idusuario")
+	@JoinColumn(name = "idusuario")
 	private UsuarioVO usuario;
-
+	@ManyToOne
+	@JoinColumn(name = "idcustom")
+	private CustomVO custom;
+	
+	private Date fechapublicacion;
 }

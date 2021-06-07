@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dawes.modelo.UsuarioRolVO;
 import com.dawes.modelo.UsuarioVO;
-import com.dawes.servicios.ServicioPedidoProductoUsuario;
 import com.dawes.servicios.ServicioRol;
 import com.dawes.servicios.ServicioUsuario;
+import com.dawes.servicios.ServicioUsuarioCustom;
+import com.dawes.servicios.ServicioUsuarioRol;
 
 @Controller
 public class UsuarioController {
@@ -20,10 +21,14 @@ public class UsuarioController {
 	ServicioUsuario susuario;
 	
 	@Autowired
-	ServicioPedidoProductoUsuario sppu;
-	
+	ServicioUsuarioRol susuariorol;
+
 	@Autowired
 	ServicioRol sr;
+	
+	@Autowired
+	ServicioUsuarioCustom susucustom;
+	
 	
 	@GetMapping("/usuarios")
 	public String usuarios(Model modelo) {
@@ -33,17 +38,18 @@ public class UsuarioController {
 	 //CRUD
 	@GetMapping("/insertarUsuario")
 	public String insertar(Model modelo) {
-		modelo.addAttribute("usuarios", susuario.findAll());
+		modelo.addAttribute("usuarios", new UsuarioVO());
 		modelo.addAttribute("usuarioroles", new UsuarioRolVO());
 		modelo.addAttribute("roles", sr.findAll());
 		return "admin/insertarUsuario";
 	}
 	
 	@PostMapping("/submitUsuario")
-	public String submit(@ModelAttribute UsuarioVO usuario,Model modelo) {
+	public String submit(@ModelAttribute UsuarioVO usuario, @ModelAttribute UsuarioRolVO usuariorol,Model modelo) {
 		susuario.save(usuario);
-		modelo.addAttribute("producto", susuario.findAll());
-		return "admin/submitUsuario";
+		susuariorol.save(usuariorol);
+		modelo.addAttribute("usuario", susuario.findAll());
+		return "admin/usuarioss";
 	}
 	
 	@GetMapping("/eliminarUsuario")
@@ -62,8 +68,9 @@ public class UsuarioController {
 	
 	@GetMapping("/usuario")
 	public String panel_usuario(@RequestParam int idusuario, Model modelo){
-		UsuarioVO usu=susuario.findById(idusuario).get();
-		modelo.addAttribute("usuario", usu);
+		UsuarioVO usuario = susuario.findById(idusuario).get();
+		modelo.addAttribute("customusuario", susucustom.findByUsuario(usuario));
+		modelo.addAttribute("usuario", usuario);
 		return "registrado/usuario";
 	}
 	
