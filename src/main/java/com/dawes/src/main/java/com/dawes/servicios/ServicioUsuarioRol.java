@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.dawes.modelo.UsuarioRolVO;
-@Service
+
 public interface ServicioUsuarioRol {
 
 	<S extends UsuarioRolVO> S save(S entity);

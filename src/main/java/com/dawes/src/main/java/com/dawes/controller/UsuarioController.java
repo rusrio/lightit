@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dawes.modelo.RolVO;
 import com.dawes.modelo.UsuarioRolVO;
 import com.dawes.modelo.UsuarioVO;
 import com.dawes.servicios.ServicioRol;
@@ -45,22 +46,23 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/submitUsuario")
-	public String submit(@ModelAttribute UsuarioVO usuario, @ModelAttribute UsuarioRolVO usuariorol,Model modelo) {
+	public String submitUsuario(@ModelAttribute UsuarioVO usuario,RolVO rol,Model modelo) {
 		susuario.save(usuario);
-		susuariorol.save(usuariorol);
-		modelo.addAttribute("usuario", susuario.findAll());
-		return "admin/usuarioss";
+		UsuarioRolVO newusuariorol = new UsuarioRolVO(0, usuario, rol);
+		susuariorol.save(newusuariorol);
+		modelo.addAttribute("usuarioroles", susuariorol.findAll());
+		return "admin/";
 	}
 	
 	@GetMapping("/eliminarUsuario")
-	public String eliminar(@RequestParam int idusuario, Model modelo){
-		susuario.deleteById(idusuario);
-		modelo.addAttribute("lineas", susuario.findAll());
+	public String eliminarUsuario(@RequestParam int idusuariorol, Model modelo){
+		susuariorol.deleteById(idusuariorol);
+		modelo.addAttribute("usuariorol", susuariorol.findAll());
 		return "admin/eliminarUsuario";
 	}
 	
 	@GetMapping("/modificarUsuario")
-	public String modificar(@RequestParam int idusuario, Model modelo){
+	public String modificarUsuario(@RequestParam int idusuario, Model modelo){
 		UsuarioVO usu=susuario.findById(idusuario).get();
 		modelo.addAttribute("usuario", usu);
 		return "admin/modificarUsuario";

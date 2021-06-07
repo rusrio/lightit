@@ -20,7 +20,7 @@ public class UsuarioRolController {
 	
 	@GetMapping("/gestion_usuarios")
 	public String gestion_usuarios(Model modelo) {
-		modelo.addAttribute("usuariorol", sur.findAll());
+		modelo.addAttribute("usuarioroles", sur.findAll());
 	return "admin/gestion_usuarios";
 	}
 	
@@ -32,22 +32,22 @@ public class UsuarioRolController {
 	
 	@GetMapping("/insertarUsuariorol")
 	public String insertar(Model modelo) {
-		modelo.addAttribute("producto", new ProductoVO());
+		modelo.addAttribute("usuariorol", new UsuarioRolVO());
 		return "admin/insertarProducto";
 	}
 	
 	@PostMapping("/submitUsuariorol")
 	public String submit(@ModelAttribute UsuarioRolVO usuariorol,Model modelo) {
 		sur.save(usuariorol);
-		modelo.addAttribute("productos", sur.findAll());
-		return "admin/gestion_productos";
+		modelo.addAttribute("usuariorol", sur.findAll());
+		return "admin/gestion_usuarios";
 	}
 	
 	@GetMapping("/eliminarUsuarioRol")
 	public String eliminar(@RequestParam int idproducto, Model modelo){
 		sur.deleteById(idproducto);
-		modelo.addAttribute("productos", sur.findAll());
-		return "admin/gestion_productos";
+		modelo.addAttribute("usuariorol", sur.findAll());
+		return "admin/gestion_usuarios";
 	}
 	
 	

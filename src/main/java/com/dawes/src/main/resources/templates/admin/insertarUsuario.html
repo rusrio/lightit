@@ -22,7 +22,7 @@
      <div class="formulario">
      <form th:action="@{/submitUsuario}" method="post">
 	 	<p>Nombre del usuario: <input autocomplete="off" type="text" name="nombre" id="nombre"/> </p>
-	<select >	
+	<select name="rol" id="rol">	
     <option th:each="r : ${roles}" th:value="${r.nombre}" th:text="${r.nombre}"></option> 
     </select>
 
