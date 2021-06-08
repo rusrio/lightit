@@ -48,12 +48,10 @@ public class MiSeguridad extends WebSecurityConfigurerAdapter {
 		      .deleteCookies("JSESSIONID");
 		      
 		}
-		// configuramos la autenticacion
 		@Override
 		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("admin").password (encripta().encode("temporal")).roles("ADMIN");
-		auth.inMemoryAuthentication().withUser("user").password (encripta().encode("temporal")).roles("REGISTRADO");
+			
+			auth.userDetailsService(sui);
 		}
-	
 }
 

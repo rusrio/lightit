@@ -5,7 +5,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dawes.modelo.RolVO;
 import com.dawes.modelo.UsuarioRolVO;
+import com.dawes.modelo.UsuarioVO;
 import com.dawes.repositorio.UsuarioRolRepository;
 import com.dawes.servicios.ServicioUsuarioRol;
 
@@ -67,6 +69,14 @@ public class ServicioUsuarioRolImpl implements ServicioUsuarioRol {
 	@Override
 	public void deleteAll() {
 		urop.deleteAll();
+	}
+	
+	public void deleteByUsuario(UsuarioVO usuario) {
+		urop.deleteByUsuario(usuario);
+	}
+	
+	public void deleteByRol(RolVO rol) {
+		urop.deleteByRol(rol);
 	}
 	
 	

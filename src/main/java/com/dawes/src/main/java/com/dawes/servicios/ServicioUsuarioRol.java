@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.dawes.modelo.UsuarioRolVO;
+import com.dawes.modelo.UsuarioVO;
 
 public interface ServicioUsuarioRol {
 
@@ -29,5 +30,7 @@ public interface ServicioUsuarioRol {
 	void deleteAll(Iterable<? extends UsuarioRolVO> entities);
 
 	void deleteAll();
+
+	void deleteByUsuario(UsuarioVO usuarioVO);
 
 }

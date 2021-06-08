@@ -11,7 +11,7 @@ import com.dawes.modelo.UsuarioVO;
 public interface UsuarioRepository extends CrudRepository<UsuarioVO, Integer> {
 
 
-	UserDetails findByNombre(String nombre);
+	UserDetails findByUsername(String username);
 
 
 	

@@ -23,7 +23,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
+
 @NoArgsConstructor
 
 @Entity
@@ -37,11 +37,23 @@ private int idusuario;
 	
 @NotNull
 @Column(unique=true)
+private String username;
 private String nombre;
-private LocalDate fechaRegistro;
 
 @NotNull
-private String contrasena;
+private String password;
+private LocalDate fechaRegistro;
+
+public UsuarioVO(int idusuario, String username, String nombre, String password, LocalDate fechaRegistro, List<UsuarioRolVO> roles) {
+	super();
+	this.idusuario = idusuario;
+	this.username = username;
+	this.nombre = username;
+	this.password = password;
+	this.fechaRegistro = fechaRegistro;
+	this.roles = roles;
+}
+
 @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 List<UsuarioRolVO> roles;
 
@@ -79,4 +91,5 @@ public boolean isEnabled() {
 	// TODO Auto-generated method stub
 	return false;
 }
+
 }

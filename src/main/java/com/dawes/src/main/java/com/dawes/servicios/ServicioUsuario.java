@@ -9,8 +9,6 @@ import com.dawes.modelo.UsuarioVO;
 
 public interface ServicioUsuario {
 	
-	Optional<UsuarioVO> findByNombre(String nombre);
-	
 	<S extends UsuarioVO> S save(S entity);
 
 	<S extends UsuarioVO> Iterable<S> saveAll(Iterable<S> entities);
@@ -33,6 +31,6 @@ public interface ServicioUsuario {
 
 	void deleteAll();
 
-	UserDetails loadUserByNombre(String nombre) throws UsernameNotFoundException;
+	UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 
 }

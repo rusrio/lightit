@@ -37,7 +37,7 @@ public class UsuarioController {
 		return "admin/usuarios";
 	}
 	 //CRUD
-	@GetMapping("/insertarUsuario")
+/*	@GetMapping("/insertarUsuario")
 	public String insertar(Model modelo) {
 		modelo.addAttribute("usuarios", new UsuarioVO());
 		modelo.addAttribute("usuarioroles", new UsuarioRolVO());
@@ -67,7 +67,7 @@ public class UsuarioController {
 		modelo.addAttribute("usuario", usu);
 		return "admin/modificarUsuario";
 	}
-	
+*/	
 	@GetMapping("/usuario")
 	public String panel_usuario(@RequestParam int idusuario, Model modelo){
 		UsuarioVO usuario = susuario.findById(idusuario).get();

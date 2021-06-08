@@ -8,6 +8,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +28,7 @@ public class UsuarioRolVO {
 	private int idac;
 	@ManyToOne
 	@JoinColumn(name = "idusuario")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private UsuarioVO usuario;
 	@ManyToOne
 	@JoinColumn(name = "idrol")
