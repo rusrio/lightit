@@ -45,8 +45,7 @@ public class MController {
 	
 	@GetMapping("/index")
 	public String lineas(Model modelo) {
-		modelo.addAttribute("pedidos", spedido.findAll());
-
+	modelo.addAttribute("pedidos", spedido.findAll());
 	return "index";
 	}
 	
@@ -62,7 +61,12 @@ public class MController {
 	
 	@GetMapping("/admin")
 	public String admin() {
-		return "admin/panel_admin";
+		return "adminhtml/panel_admin";
+	}
+	
+	@GetMapping("/error403")
+	public String error403() {
+	return "error403";
 	}
 	
 }

@@ -33,14 +33,14 @@ public class UsuarioRolController {
 	@GetMapping("/gestion_usuarios")
 	public String gestion_usuarios(Model modelo) {
 		modelo.addAttribute("usuarioroles", sur.findAll());
-	return "admin/gestion_usuarios";
+	return "adminhtml/gestion_usuarios";
 	}
 	
 	@GetMapping("/insertarUsuario")
 	public String insertarUsuario(Model modelo) {
 		modelo.addAttribute("usuario", new UsuarioVO());
 		modelo.addAttribute("roles",sr.findAll());
-		return "admin/insertarUsuario";
+		return "adminhtml/insertarUsuario";
 	}
 	
 	@PostMapping("/submitUsuario")
@@ -59,7 +59,7 @@ public class UsuarioRolController {
 	@GetMapping("/insertarUsuariorol")
 	public String insertarUsuariorol(Model modelo) {
 		modelo.addAttribute("usuariorol", new UsuarioRolVO());
-		return "admin/";
+		return "adminhtml/";
 	}
 	
 	@PostMapping("/submitUsuariorol")

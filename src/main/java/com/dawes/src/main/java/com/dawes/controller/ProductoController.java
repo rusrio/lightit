@@ -34,35 +34,35 @@ public class ProductoController {
 	@GetMapping("/gestion_productos")
 	public String gestion_productos(Model modelo) {
 	modelo.addAttribute("productos", sp.findAll());
-	return "admin/gestion_productos";
+	return "adminhtml/gestion_productos";
 	}
 	
 	 //CRUD
 	@GetMapping("/insertarProducto")
 	public String insertar(Model modelo) {
 		modelo.addAttribute("producto", new ProductoVO());
-		return "admin/insertarProducto";
+		return "adminhtml/insertarProducto";
 	}
 	
 	@PostMapping("/submitProducto")
 	public String submit(@ModelAttribute ProductoVO producto,Model modelo) {
 		sp.save(producto);
 		modelo.addAttribute("productos", sp.findAll());
-		return "admin/gestion_productos";
+		return "adminhtml/gestion_productos";
 	}
 	
 	@GetMapping("/eliminarProducto")
 	public String eliminar(@RequestParam int idproducto, Model modelo){
 		sp.deleteById(idproducto);
 		modelo.addAttribute("productos", sp.findAll());
-		return "admin/gestion_productos";
+		return "adminhtml/gestion_productos";
 	}
 	
 	@GetMapping("/modificarProducto")
 	public String modificar(@RequestParam int idproducto, Model modelo){
 		ProductoVO pr=sp.findById(idproducto).get();
 		modelo.addAttribute("producto", pr);
-		return "admin/modificarProducto";
+		return "adminhtml/modificarProducto";
 	}
 	
 	@GetMapping("/ver_producto")

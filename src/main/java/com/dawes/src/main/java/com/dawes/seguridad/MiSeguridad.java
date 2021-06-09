@@ -17,41 +17,40 @@ public class MiSeguridad extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	ServicioUsuarioImpl sui;
-
-	@Bean 
-	public BCryptPasswordEncoder encripta() { 
-	    return new BCryptPasswordEncoder(); 
+	
+	@Bean
+	public BCryptPasswordEncoder BCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 	
-//	Autenticacion
+	public String encripta(String password) {
+		return BCryptPasswordEncoder().encode(password);
+	}
 	
-// configuramos la autorizacion
+	// Se programa la autentificación
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		
+		auth.inMemoryAuthentication().withUser("usuario").password(encripta("temporal")).roles("REGISTRADO");
+		auth.inMemoryAuthentication().withUser("administrador").password(encripta("temporal")).roles("ADMIN");
+	}
 	
-	// configuramos la autorizacion
-		@Override
-		protected void configure(HttpSecurity http) throws Exception {
-			
-			 http
-		      .csrf().disable()
-		      .authorizeRequests()
-		      .antMatchers("/admin/**").permitAll()
-		      .antMatchers("/static*").permitAll()
-		      .antMatchers("/login*").anonymous()
-		      .and()
-		      .formLogin()
-		      .loginPage("/login")
-		      .loginProcessingUrl("/login")
-		      .defaultSuccessUrl("/index", true)		      
-		      .and()
-		      .logout()
-		      .logoutUrl("/logout")
-		      .deleteCookies("JSESSIONID");
-		      
-		}
-		@Override
-		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-			
-			auth.userDetailsService(sui);
-		}
+	// Programar la autorización
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/insertarUsuario/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/insertarUsuario/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/insertarUsuario/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/submitUsuario/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/submitProducto/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/insertarProducto/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/modificarProducto/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/registrado/**").hasAnyRole("REGISTRADO","ADMIN");
+		http.formLogin().loginPage("/login");
+		http.exceptionHandling().accessDeniedPage("/error403");
+		http.logout().logoutSuccessUrl("/index");
+		http.csrf().disable();
+	}
 }
 

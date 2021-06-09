@@ -19,34 +19,34 @@ public class RolController {
 	@GetMapping("/roles")
 	public String tienda(Model modelo) {
 		modelo.addAttribute("roles", srol.findAll());
-		return "admin/roles";
+		return "adminhtml/roles";
 	}
 	 //CRUD
 	@GetMapping("/insertarRol")
 	public String insertar(Model modelo) {
 		modelo.addAttribute("rol", new RolVO());
-		return "admin/insertarRol";
+		return "adminhtml/insertarRol";
 	}
 	
 	@PostMapping("/submitRol")
 	public String submit(@ModelAttribute RolVO rol,Model modelo) {
 		srol.save(rol);
 		modelo.addAttribute("rol", srol.findAll());
-		return "admin/submitRol";
+		return "adminhtml/submitRol";
 	}
 	
 	@GetMapping("/eliminarRol")
 	public String eliminar(@RequestParam int idrol, Model modelo){
 		srol.deleteById(idrol);
 		modelo.addAttribute("lineas", srol.findAll());
-		return "admin/eliminarRol";
+		return "adminhtml/eliminarRol";
 	}
 	
 	@GetMapping("/modificarRol")
 	public String modificar(@RequestParam int idrol, Model modelo){
 		RolVO r=srol.findById(idrol).get();
 		modelo.addAttribute("rol", r);
-		return "admin/modificarRol";
+		return "adminhtml/modificarRol";
 	}
 	
 }

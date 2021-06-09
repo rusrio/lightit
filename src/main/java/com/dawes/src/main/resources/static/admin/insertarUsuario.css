@@ -212,12 +212,13 @@ form input {
   background-color: transparent;
   color: black;
   font-family: 'Inter', sans-serif;
-  text-transform: uppercase;
+
 }
 
 .insertar{
 	color: white;
 	background-color: black;
+	text-transform: uppercase;
 	cursor: pointer;
 }
 

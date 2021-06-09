@@ -54,7 +54,7 @@ public UsuarioVO(int idusuario, String username, String nombre, String password,
 	this.roles = roles;
 }
 
-@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+@OneToMany(mappedBy = "rol", fetch = FetchType.EAGER)
 List<UsuarioRolVO> roles;
 
 @Override

@@ -21,7 +21,7 @@ public class PedidoProductoController {
 	public String gestion_pedidos(Model modelo) {
 	modelo.addAttribute("pedidoproducto", pp.findAll());
 	modelo.addAttribute("usuariopedido", up.findAll());
-	return "admin/gestion_pedidos";
+	return "adminhtml/gestion_pedidos";
 	}
 	
 }

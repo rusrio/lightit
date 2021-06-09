@@ -2,6 +2,7 @@ package com.dawes.controller;
 import java.io.IOException;
 import java.sql.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -21,9 +22,13 @@ import com.dawes.servicios.ServicioUsuarioProducto;
 
 @Controller
 public class UsuarioProductoController {
-
+	 @Autowired
 	ServicioUsuarioProducto susuprod;
+	 
+	 @Autowired
 	ServicioUsuario susu;
+	 
+	 @Autowired
 	ServicioProducto sprod;
 	
 	
@@ -51,21 +56,21 @@ public class UsuarioProductoController {
 		usuario = susu.findById(idusuario).get();
 		susuprod.save(new UsuarioProductoVO(0, usuario, producto, fecha));
 		
-		return "admin/submitUsuarioProducto";
+		return "adminhtml/submitUsuarioProducto";
 	}
 	
 	@GetMapping("/eliminarUsuarioProducto")
 	public String eliminar(@RequestParam int idusuarioproducto, Model modelo){
 		susuprod.deleteById(idusuarioproducto);
 		modelo.addAttribute("usuarioproducto", susuprod.findAll());
-		return "admin/eliminarUsuarioProducto";
+		return "adminhtml/eliminarUsuarioProducto";
 	}
 	
 	@GetMapping("/modificarUsuarioProducto")
 	public String modificar(@RequestParam int idusuarioproducto, Model modelo){
 		UsuarioProductoVO usuprod=susuprod.findById(idusuarioproducto).get();
 		modelo.addAttribute("usuarioproducto", usuprod);
-		return "admin/modificarUsuarioProducto";
+		return "adminhtml/modificarUsuarioProducto";
 	}
 	
 }

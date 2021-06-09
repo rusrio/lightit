@@ -34,7 +34,7 @@ public class UsuarioController {
 	@GetMapping("/usuarios")
 	public String usuarios(Model modelo) {
 		modelo.addAttribute("usuarios", susuario.findAll());
-		return "admin/usuarios";
+		return "adminhtml/usuarios";
 	}
 	 //CRUD
 /*	@GetMapping("/insertarUsuario")

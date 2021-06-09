@@ -91,9 +91,6 @@ form input {
   transition:200ms;
 }
 
-form label {
-  opacity: 0;
-}
 
 form input {
   padding: 10px 20px;

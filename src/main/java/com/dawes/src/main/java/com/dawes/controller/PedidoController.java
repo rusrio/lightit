@@ -27,28 +27,28 @@ public class PedidoController {
 	@GetMapping("/insertarPedidos")
 	public String insertar(Model modelo) {
 		modelo.addAttribute("pedidos", new PedidoVO());
-		return "admin/insertarPedidos";
+		return "adminhtml/insertarPedidos";
 	}
 	
 	@PostMapping("/submitPedido")
 	public String submit(@ModelAttribute PedidoVO pedido,Model modelo) {
 		spedidos.save(pedido);
 		modelo.addAttribute("pedidos", spedidos.findAll());
-		return "admin/submitPedidos";
+		return "adminhtml/submitPedidos";
 	}
 	
 	@GetMapping("/eliminarPedido")
 	public String eliminar(@RequestParam int idpedidos, Model modelo){
 		spedidos.deleteById(idpedidos);
 		modelo.addAttribute("pedidos", spedidos.findAll());
-		return "admin/eliminarPedidos";
+		return "adminhtml/eliminarPedidos";
 			}
 	
 	@GetMapping("/modificarPedido")
 	public String modificar(@RequestParam int idpedido, Model modelo){
 		PedidoVO ped=spedidos.findById(idpedido).get();
 		modelo.addAttribute("pedidos", ped);
-		return "admin/modificarPedido";
+		return "adminhtml/modificarPedido";
 	}
 	
 	
